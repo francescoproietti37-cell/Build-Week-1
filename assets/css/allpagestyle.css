@@ -13,6 +13,7 @@ html {
 
 body {
   background-image: url(..//imgs/bg.jpg);
+  background-size: cover;
 }
 
 h1,
@@ -22,6 +23,7 @@ h4,
 h5,
 h6 {
   font-family: "Outfit", sans-serif;
+  color: white;
 }
 
 h1 {
@@ -29,8 +31,6 @@ h1 {
   margin-bottom: 0.5rem;
   font-size: 64px;
   font-weight: 700;
-  top: 16px;
-  z-index: 1;
 }
 
 h2 {
@@ -49,8 +49,16 @@ p {
   font-family: "Inter", sans-serif;
 }
 
-button .azure {
+.neon-button {
   background-color: #00ffff;
   color: #192155;
   text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.8), 0 0 30px rgba(0, 123, 255, 0.6);
+  border: none;
+  padding: 20px;
+  font-size: 24px;
+  width: 130px;
+  min-height: 36px;
+  font-weight: 700;
+  cursor: pointer;
 }
