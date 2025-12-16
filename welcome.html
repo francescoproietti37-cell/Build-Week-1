@@ -11,15 +11,18 @@
   <body>
     <div class="page">
       <main class="panel" aria-label="Exam welcome">
+        <!-- Logo -->
         <header class="brand">
           <img src="./assets/imgs/epicode_logo.png" alt="EPICODE" />
         </header>
 
+        <!-- Titolo -->
         <section class="hero">
           <h1>Welcome to</h1>
           <h2>your exam</h2>
         </section>
 
+        <!-- Istruzioni -->
         <section class="instructions" aria-label="Instructions">
           <h3>Instructions</h3>
           <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
@@ -31,6 +34,7 @@
           </ul>
         </section>
 
+        <!-- Checkbox + bottone -->
         <section class="actions" aria-label="Confirmation and proceed">
           <label class="promise" for="promise">
             <input id="promise" type="checkbox" />
@@ -46,14 +50,15 @@
       const promise = document.getElementById("promise");
       const proceedBtn = document.getElementById("proceedBtn");
 
+      // Permette sempre il click (poi controlliamo la checkbox)
       proceedBtn.disabled = false;
 
+      // Se non spuntata: alert. Se spuntata: vai a quiz.html
       proceedBtn.addEventListener("click", () => {
         if (!promise.checked) {
           alert("Seleziona la casella 'I promise...' prima di procedere.");
           return;
         }
-
         window.location.href = "./quiz.html";
       });
     </script>
