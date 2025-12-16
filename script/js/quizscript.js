@@ -12,7 +12,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it does not get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -83,6 +83,10 @@ const questions = [
   },
 ];
 
+//VARIBILI GLOBALI
+
+//Suddivido i miei oggetti con domanda e risposta in due array che contengono uno le domande, e uno le risposte
+
 const allQuestions = questions.map((quest) => {
   return {
     question: quest.question,
@@ -98,7 +102,52 @@ const allAnswers = questions.map((question) => {
   return answers;
 });
 
+const maxQuestions = questions.length;
+let currentQuestionCounter = 0;
 const questionDiv = document.getElementById("question-shower");
-const currentQuestion = document.createElement("h1");
-currentQuestion.innerText = allQuestions[0];
-questionDiv.appendChild(currentQuestion.question);
+
+//FINE VARIABILI GLOBALI
+
+function createAnswers() {
+  const currentQuestion = document.createElement("h1");
+  currentQuestion.classList.add("showed-question");
+  currentQuestion.innerText = allQuestions[currentQuestionCounter].question;
+  questionDiv.appendChild(currentQuestion);
+  const answersDiv = document.getElementById("answer-shower");
+  for (let i = 0; i < allAnswers[currentQuestionCounter].length; i++) {
+    const answerBlock = document.createElement("input");
+    const labelForAnswer = document.createElement("label");
+    answerBlock.id = "answer" + (i + 1);
+    answerBlock.type = "radio";
+    answerBlock.name = "answer";
+    answerBlock.classList.add("answer");
+    labelForAnswer.setAttribute("for", answerBlock.id);
+    labelForAnswer.innerText = allAnswers[currentQuestionCounter][i];
+    answersDiv.appendChild(answerBlock);
+    answersDiv.appendChild(labelForAnswer);
+    answerBlock.addEventListener("click", (event) => {
+      checkAnswer(event);
+    });
+  }
+  const footer = document.getElementsByTagName("footer")[0];
+  const footerDiv = document.createElement("div");
+  const questionCounter = document.createElement("h4");
+  questionCounter.classList.add("counter");
+  footerDiv.appendChild(questionCounter);
+  footer.appendChild(footerDiv);
+  questionCounter.innerText = "QUESTION 1" + "/" + maxQuestions;
+}
+
+//Questa funzione, dopo il click, aggiornerà la domanda e le risposte visibili
+function checkAnswer(event) {
+  const currentQuestion = document.querySelector(".showed-question");
+  const currentAnswers = document.querySelectorAll(".answer");
+  const questionCounter = document.querySelector(".counter");
+  currentQuestionCounter++;
+  currentQuestion.innerText = allQuestions[currentQuestionCounter].question;
+  questionCounter.innerText = "QUESTION " + (currentQuestionCounter + 1) + "/" + maxQuestions;
+  console.dir(questionCounter);
+  currentAnswers.forEach((answer) => {});
+}
+
+createAnswers();

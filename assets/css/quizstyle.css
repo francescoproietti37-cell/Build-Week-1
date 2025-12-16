@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(..//imgs/bg.jpg);
+  background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: #d20094;
+  font-size: 24px;
+}
+
+p {
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+}
+
+img {
+  max-width: 15%;
+  margin: 30px 100px;
+  padding-block: -20px;
+}
+
+#timer-container {
+  display: flex;
+  justify-content: right;
+  fill: none;
+  stroke-width: 15px;
+  stroke-linecap: round;
+}
+
+.base-circle {
+  stroke: #9a699d;
+}
+
+.progression-circle {
+  stroke: #00ffff;
+  stroke-dasharray: 565;
+  stroke-dashoffset: 565;
+  transition: stroke-dashoffset 1s linear;
+}
+
+svg {
+  transform: rotate(-90deg);
+}
+
+.answer {
+  width: 35%;
+  font-size: 100px;
+  color: white;
+  box-sizing: border-box;
+  border: 3px solid white;
+}
+
+.hidden {
+  display: none;
+}
