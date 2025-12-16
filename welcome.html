@@ -3,8 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/allpagestyle.css" />
+    <title>Welcome to your exam</title>
+
+    <link rel="stylesheet" href="./assets/css/welcomestyle.css" />
   </head>
-  <body></body>
+
+  <body>
+    <div class="page">
+      <main class="panel" aria-label="Exam welcome">
+        <header class="brand">
+          <img src="./assets/imgs/epicode_logo.png" alt="EPICODE" />
+        </header>
+
+        <section class="hero">
+          <h1>Welcome to</h1>
+          <h2>your exam</h2>
+        </section>
+
+        <section class="instructions" aria-label="Instructions">
+          <h3>Instructions</h3>
+          <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
+
+          <ul>
+            <li>Each question is <strong>timed</strong> and can only be <strong>answered once</strong>.</li>
+            <li>Changing browser tab or opening other windows will <strong>invalidate the question</strong>.</li>
+            <li>This exam will take approx. <strong>0-5 minutes</strong>.</li>
+          </ul>
+        </section>
+
+        <section class="actions" aria-label="Confirmation and proceed">
+          <label class="promise" for="promise">
+            <input id="promise" type="checkbox" />
+            <span>I promise to answer myself without help from anyone</span>
+          </label>
+
+          <button id="proceedBtn" class="btn-proceed" type="button" disabled>PROCEED</button>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const promise = document.getElementById("promise");
+      const proceedBtn = document.getElementById("proceedBtn");
+
+      proceedBtn.disabled = false;
+
+      proceedBtn.addEventListener("click", () => {
+        if (!promise.checked) {
+          alert("Seleziona la casella 'I promise...' prima di procedere.");
+          return;
+        }
+
+        window.location.href = "./quiz.html";
+      });
+    </script>
+  </body>
 </html>

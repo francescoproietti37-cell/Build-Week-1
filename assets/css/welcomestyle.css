@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* NERO FUORI DAL "QUADRO" come nello screenshot */
+body {
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* IL "QUADRO" 1024x768 centrato */
+.page {
+  width: min(1024px, 100%);
+  aspect-ratio: 4 / 3; /* 1024x768 */
+  background: url("../imgs/bg.jpg") center/cover no-repeat;
+  display: flex;
+}
+
+/* Contenuto interno */
+.panel {
+  width: 100%;
+  height: 100%;
+  padding: 78px 96px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo */
+.brand img {
+  height: 36px;
+  width: auto;
+  display: block;
+  margin-bottom: 52px;
+}
+
+/* Font titoli */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", sans-serif;
+}
+
+/* Titoli come in foto */
+.hero h1 {
+  font-size: 72px;
+  font-weight: 300;
+  line-height: 1.02;
+  margin-bottom: 6px;
+}
+
+.hero h2 {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.02;
+  margin-bottom: 34px;
+}
+
+/* Sezione instructions */
+.instructions h3 {
+  color: #d20094;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.instructions p {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  max-width: 560px;
+  opacity: 0.9;
+  margin-bottom: 26px;
+}
+
+.instructions ul {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  padding-left: 22px;
+  max-width: 680px;
+}
+
+.instructions li {
+  margin: 10px 0;
+}
+
+.instructions strong {
+  font-weight: 700;
+}
+
+/* Checkbox + bottone in basso */
+.actions {
+  margin-top: auto;
+  padding-top: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+/* Checkbox stile "quadrato vuoto" come in foto */
+.promise {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+.promise input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: transparent;
+  display: inline-block;
+}
+
+.promise input:checked {
+  border-color: #00f0ff;
+  background: #00f0ff;
+}
+
+/* Bottone con glow come in foto */
+.btn-proceed {
+  background-color: #00f0ff;
+  color: #061226;
+  text-transform: uppercase;
+
+  border: 0;
+  border-radius: 4px;
+  padding: 18px 68px;
+
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* IMPORTANTISSIMO:
+   nella foto il bottone è brillante anche se la checkbox NON è spuntata.
+   Quindi lo lasciamo "bello" anche quando è disabled. */
+.btn-proceed:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Se lo schermo è piccolo, non rompiamo tutto */
+@media (max-width: 900px) {
+  body {
+    padding: 12px;
+  }
+
+  .panel {
+    padding: 48px 28px;
+  }
+
+  .hero h1,
+  .hero h2 {
+    font-size: 56px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-proceed {
+    width: 100%;
+    text-align: center;
+  }
+}
