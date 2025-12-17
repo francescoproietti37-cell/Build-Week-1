@@ -29,7 +29,7 @@ h6 {
 h1 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  font-size: 64px;
+  font-size: 52px;
   font-weight: 700;
 }
 
@@ -174,84 +174,102 @@ svg {
   clear: both;
 }
 
-/* -- CSS BOTTONI AL POSTO DEI CHECKBOX --
+/* -- CSS BOTTONI AL POSTO DEI CHECKBOX --*/
 
-
-#buttonTransparent {
- position: relative;
- background: rgba(255, 255, 255, 0.1);
- backdrop-filter: blur(10px);
- -webkit-backdrop-filter: blur(10px);
- border: 2px solid transparent;
- border-radius: 50px;
- background-clip: padding-box;
- width: 220px;
- color: white;
- font-size: 18px;
- font-family: "Inter", sans-serif;
- font-weight: 600;
- margin: 20px 10px;
- padding: 20px;
- cursor: pointer;
+.answer {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  border-radius: 50px;
+  background-clip: padding-box;
+  width: 400px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  margin: 0.1px 8px;
+  padding: 25px;
+  cursor: pointer;
 }
 
+.answer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(175deg, rgba(255, 255, 255), rgba(210, 0, 148, 0.3));
+  box-shadow: inset;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
 
-#buttonTransparent::before {
- content: "";
- position: absolute;
- inset: 0;
- border-radius: 50px;
- padding: 2px;
- background: linear-gradient(175deg, rgba(255, 255, 255), rgba(210, 0, 148, 0.3));
- box-shadow: inset;
- -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
- mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
- -webkit-mask-composite: xor;
- mask-composite: exclude;
- pointer-events: none;
- z-index: -1;
-}*/
+.selected {
+  background: linear-gradient(135deg, #d900a0, #b0007d);
+  border: 2px solid #d900a0;
+}
+
+.selected::before {
+  background: linear-gradient(#ffffff, #d20094, #d60076);
+}
 
 /*-- PULSANTE ILLUMINATO --
 
-
-#buttonChecked {
- position: relative;
- background: linear-gradient(135deg, #c50090, #8f007b);
- border: none;
- border-radius: 50px;
- width: 220px;
- color: white;
- font-size: 18px;
- font-family: "Inter", sans-serif;
- font-weight: 600;
- margin: 20px 10px;
- padding: 20px;
- cursor: pointer;
+.counterQuestion {
+  position: relative;
+  background: linear-gradient(135deg, #c50090, #8f007b);
+  border: none;
+  border-radius: 50px;
+  width: 220px;
+  color: white;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  margin: 20px 10px;
+  padding: 20px;
+  cursor: pointer;
 }
 
-
-#buttonChecked::before {
- content: "";
- position: absolute;
- inset: -2px;
- border-radius: 50px;
- background: linear-gradient(#ffffff, #d20094, #d60076);
- z-index: -1;
+.counterQuestion::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50px;
+  background: linear-gradient(#ffffff, #d20094, #d60076);
+  z-index: -1;
 }*/
 
-.maxQuestions,
+/*.maxQuestions,
 .counter {
   margin-top: 40px;
   color: #c50090;
   font-family: "Outfit", sans-serif;
   text-align: center;
-}
+}*/
 
 /*-- QUESTION N° BIANCO--*/
 
-.counterQuestion {
+.counter {
   color: white;
   font-family: "Outfit", sans-serif;
   text-align: center;
+}
+
+/*---ALLINEAMENTO CENTRALE--*/
+
+#answer-shower {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  justify-items: center;
 }

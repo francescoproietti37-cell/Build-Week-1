@@ -119,7 +119,7 @@ function createAnswers() {
     answerBlock.classList.add("answer");
     answersDiv.appendChild(answerBlock);
     answerBlock.addEventListener("click", (event) => {
-      checkAnswer(event);
+      checkAnswer(event, "selected");
     });
   }
   const footer = document.getElementsByTagName("footer")[0];
