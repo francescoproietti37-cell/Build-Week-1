@@ -11,8 +11,7 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it does not get modified?",
+    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it does not get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -28,8 +27,7 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question:
-      "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -108,6 +106,7 @@ const questionDiv = document.getElementById("question-shower");
 
 //FINE VARIABILI GLOBALI
 
+//Funzione che, al caricamento della pagina, caricherà il primo set di domanda/risposta
 function createAnswers() {
   const currentQuestion = document.createElement("h1");
   currentQuestion.classList.add("showed-question");
@@ -115,16 +114,10 @@ function createAnswers() {
   questionDiv.appendChild(currentQuestion);
   const answersDiv = document.getElementById("answer-shower");
   for (let i = 0; i < allAnswers[currentQuestionCounter].length; i++) {
-    const answerBlock = document.createElement("input");
-    const labelForAnswer = document.createElement("label");
-    answerBlock.id = "answer" + (i + 1);
-    answerBlock.type = "radio";
-    answerBlock.name = "answer";
+    const answerBlock = document.createElement("div");
+    answerBlock.innerText = allAnswers[currentQuestionCounter][i];
     answerBlock.classList.add("answer");
-    labelForAnswer.setAttribute("for", answerBlock.id);
-    labelForAnswer.innerText = allAnswers[currentQuestionCounter][i];
     answersDiv.appendChild(answerBlock);
-    answersDiv.appendChild(labelForAnswer);
     answerBlock.addEventListener("click", (event) => {
       checkAnswer(event);
     });
@@ -140,14 +133,36 @@ function createAnswers() {
 
 //Questa funzione, dopo il click, aggiornerà la domanda e le risposte visibili
 function checkAnswer(event) {
+  currentQuestionCounter++;
   const currentQuestion = document.querySelector(".showed-question");
   const currentAnswers = document.querySelectorAll(".answer");
+  const nextAnswers = allAnswers[currentQuestionCounter];
   const questionCounter = document.querySelector(".counter");
-  currentQuestionCounter++;
   currentQuestion.innerText = allQuestions[currentQuestionCounter].question;
   questionCounter.innerText = "QUESTION " + (currentQuestionCounter + 1) + "/" + maxQuestions;
-  console.dir(questionCounter);
-  currentAnswers.forEach((answer) => {});
+  questionCounter.classList.add("counterQuestion");
+  for (let i = 0; i < nextAnswers.length; i++) {}
 }
 
 createAnswers();
+
+// -- TIMER SEMPLICE --
+
+let timeLeft = 60; // Tempo di partenza
+const progressCircle = document.querySelector(".progression-circle");
+const timer = setInterval(function () {
+  timeLeft = timeLeft - 1; // Togli 1 secondo
+
+  // Aggiorna il numero
+  document.getElementById("countdown").innerHTML = `
+    <p class="label">SECONDS</p>
+    ${timeLeft}
+    <p class="label">REMAINING</p>
+  `;
+
+  progressCircle.style.strokeDashoffset = 421 - (timeLeft * 421) / 60 + 2;
+  // Se arriva a 0, ferma tutto
+  if (timeLeft === 0) {
+    clearInterval(timer);
+  }
+}, 1000); // Ripeti ogni 1 secondo
