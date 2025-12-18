@@ -177,7 +177,7 @@ function nextQuestion() {
     // Quiz finito
     clearInterval(timerInterval);
     // Reindirizza alla pagina dei risultati
-    window.location.href = "results.html";
+    window.location.href = "result.html";
   }
 }
 
