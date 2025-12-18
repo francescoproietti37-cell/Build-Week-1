@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/allpagestyle.css" />
+    <title>Benchmark</title>
+    <link rel="stylesheet" href="assets/css/quizstyle.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="header-container">
+        <img src="assets/imgs/epicode_logo.png" alt="logo epicodde" />
+        <div id="timer-container">
+          <svg>
+            <circle class="base-circle" cx="75" cy="75" r="67"></circle>
+            <circle class="progression-circle" cx="75" cy="75" r="67"></circle>
+          </svg>
+          <div id="countdown">
+            <p class="label">SECONDS</p>
+            60
+            <p class="label">REMAINING</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="question-shower"></div>
+    <div id="answer-shower"></div>
+    <footer></footer>
+    <script src="script/js/quizscript.js"></script>
+  </body>
 </html>
