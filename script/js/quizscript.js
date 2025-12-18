@@ -184,7 +184,7 @@ function nextQuestion() {
     console.log(results);
 
     const stringForUrl = JSON.stringify(results);
-    const url = "/result.html?risultatiTest=" + stringForUrl;
+    const url = "/result.html?results=" + stringForUrl;
     // Reindirizza alla pagina dei risultati
     window.location.href = url;
   }
