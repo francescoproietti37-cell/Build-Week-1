@@ -49,11 +49,10 @@ p {
   font-family: "Inter", sans-serif;
 }
 
-/*img {
- max-width: 15%;
- margin: 30px 100px;
- padding-block: -20px;
-}*/
+footer {
+  margin: 10vh auto;
+  position: sticky;
+}
 
 .header-container {
   display: flex;
@@ -124,55 +123,14 @@ svg {
   font-family: "Inter", sans-serif;
 }
 
-/*------PRIMA STRUTTURA STEFANO TIMER CSS----
-#timer-container {
- display: flex;
- justify-content: right;
- fill: none;
- stroke-width: 15px;
- stroke-linecap: round;
-}
-
-
-.base-circle {
- stroke: #9a699d;
-}
-
-
-.progression-circle {
- stroke: #00ffff;
- stroke-dasharray: 565;
- stroke-dashoffset: 565;
- transition: stroke-dashoffset 1s linear;
-}
-
-
-svg {
- transform: rotate(-90deg);
-}
-
-
-.answer {
- max-width: 35%;
- font-size: 100px;
- color: white;
- box-sizing: border-box;
- border: 3px solid white;
- padding: auto auto;
- text-align: center;
-}
-
-
-.hidden {
- display: none;
-}*/
-
 /*--div H1---*/
 #question-shower {
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+  margin-inline: auto;
   clear: both;
   color: white;
+  max-width: 70%;
 }
 
 .counter .separator {
@@ -228,40 +186,6 @@ svg {
 .selected::before {
   background: linear-gradient(#ffffff, #d20094, #d60076);
 }
-
-/*-- PULSANTE ILLUMINATO --
-
-.counterQuestion {
-  position: relative;
-  background: linear-gradient(135deg, #c50090, #8f007b);
-  border: none;
-  border-radius: 50px;
-  width: 220px;
-  color: white;
-  font-size: 18px;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  margin: 20px 10px;
-  padding: 20px;
-  cursor: pointer;
-}
-
-.counterQuestion::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 50px;
-  background: linear-gradient(#ffffff, #d20094, #d60076);
-  z-index: -1;
-}*/
-
-/*.maxQuestions,
-.counter {
-  margin-top: 40px;
-  color: #c50090;
-  font-family: "Outfit", sans-serif;
-  text-align: center;
-}*/
 
 /*-- QUESTION N° BIANCO--*/
 

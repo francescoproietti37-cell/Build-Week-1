@@ -11,7 +11,8 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it does not get modified?",
+    question:
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it does not get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -27,7 +28,8 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question:
+      "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -84,6 +86,7 @@ const questions = [
 //VARIABILI GLOBALI
 const maxQuestions = questions.length;
 let currentQuestionCounter = 0;
+let points = 0;
 
 // timer
 let timeLeft = 60;
@@ -104,7 +107,10 @@ function showQuestion() {
   questionDiv.appendChild(questionTitle);
 
   // RISPOSTE (corrette + sbagliate) - MESCOLATE
-  const answers = [questions[currentQuestionCounter].correct_answer, ...questions[currentQuestionCounter].incorrect_answers];
+  const answers = [
+    questions[currentQuestionCounter].correct_answer,
+    ...questions[currentQuestionCounter].incorrect_answers,
+  ];
 
   // Mescola le risposte in ordine casuale
   answers.sort(() => Math.random() - 0.5);
@@ -113,6 +119,7 @@ function showQuestion() {
     const button = document.createElement("button");
     button.innerText = answerText;
     button.classList.add("answer");
+    applyCorrect(answerText, button);
 
     button.addEventListener("click", () => {
       handleAnswerClick(button);
@@ -130,14 +137,7 @@ function showQuestion() {
 
 //AGGIORNA IL COUNTER DELLE DOMANDE
 function updateQuestionCounter() {
-  let counterDiv = document.querySelector(".counter-container");
-
-  // Se non esiste, crealo
-  if (!counterDiv) {
-    counterDiv = document.createElement("div");
-    counterDiv.classList.add("counter-container");
-    document.body.appendChild(counterDiv);
-  }
+  let counterDiv = document.querySelector("footer");
 
   // Aggiorna il contenuto
   counterDiv.innerHTML = `
@@ -161,6 +161,8 @@ function handleAnswerClick(clickedButton) {
   // aggiungo solo a quello cliccato
   clickedButton.classList.add("selected");
 
+  checkIfCorrect(clickedButton);
+
   // dopo 500ms passo alla prossima domanda
   setTimeout(nextQuestion, 500);
 }
@@ -176,6 +178,23 @@ function nextQuestion() {
     clearInterval(timerInterval);
     // Reindirizza alla pagina dei risultati
     window.location.href = "results.html";
+  }
+}
+
+//Funzione che applica la classe "correct" alla risposta giusta per il calcolo dei punti
+function applyCorrect(answer, button) {
+  const correctAnswers = questions.map((question) => question.correct_answer);
+  correctAnswers.forEach((correct) => {
+    if (correct === answer) {
+      button.classList.add("correct");
+    }
+  });
+}
+
+//Funzione che controlla se il bottone clickato contiene la risposta giusta e aggiunge un punto
+function checkIfCorrect(button) {
+  if (button.classList.contains("correct")) {
+    points++;
   }
 }
 
