@@ -25,8 +25,8 @@
         <div class="percentuale">
           <div id="correct">
             <h2>Correct</h2>
-            <p class="numeri-percentuali">66.7%</p>
-            <p class="questions">4/6 questions</p>
+            <p class="numeri-percentuali" id="correct-percentage">66.7%</p>
+            <p class="questions" id="correct-answers">4/6 questions</p>
           </div>
         </div>
 
@@ -37,9 +37,9 @@
             <circle class="progression-circle" cx="250" cy="250" r="200"></circle>
           </svg>
           <div id="countdown">
-            <h2>Congratulations!</h2>
-            <h3>You passed the exam.</h3>
-            <p>
+            <h2 class="test-result">Congratulations!</h2>
+            <h3 class="test-result">You passed the exam.</h3>
+            <p class="test-result">
               We'll send you the certificate in few minutes.<br />
               Check your email (including <br />promotions / spam folder)
             </p>
@@ -50,8 +50,8 @@
         <div class="percentuale">
           <div id="wrong">
             <h2>Wrong</h2>
-            <p class="numeri-percentuali">33.3%</p>
-            <p class="questions">2/6 questions</p>
+            <p class="numeri-percentuali" id="wrong-percentage"></p>
+            <p class="questions" id="wrong-answers"></p>
           </div>
         </div>
       </section>
@@ -59,9 +59,10 @@
       <!--FOOTER-->
       <footer>
         <div>
-          <button type="button">RATE US</button>
+          <a href="feedback.html"><button type="button" id="rate-us">RATE US</button></a>
         </div>
       </footer>
     </main>
+    <script src="script/js/resultscript.js"></script>
   </body>
 </html>
