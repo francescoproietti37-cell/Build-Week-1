@@ -1,0 +1,158 @@
+/* Reset base: include padding/border nel calcolo delle dimensioni */
+* {
+  box-sizing: border-box;
+}
+
+/* Altezza piena per poter centrare bene */
+html,
+body {
+  height: 100%;
+}
+
+/* Stile generale della pagina + sfondo */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+
+  /* Immagine di sfondo a schermo intero */
+  background-image: url("../imgs/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Contenitore che centra tutto al centro dello schermo */
+.bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+/* Blocco principale con il contenuto */
+.content {
+  width: 100%;
+  max-width: 950px;
+  text-align: center;
+}
+
+/* logo */
+.brand {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+
+.brand img {
+  height: 34px;
+}
+
+/* Titolo e sottotitolo */
+h1 {
+  margin: 0 0 12px;
+  font-size: 56px;
+}
+
+.subtitle {
+  margin: 0 auto 28px;
+  max-width: 700px;
+  font-size: 16px;
+  color: #cfd6ee;
+  line-height: 1.6;
+}
+
+/* Contenitore delle stelle */
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0 30px;
+}
+
+/* Singola stella (bottone) */
+.star {
+  font-size: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* voto selezionato */
+.star.filled {
+  color: #27f1ff;
+}
+
+/* Testo guida sotto le stelle */
+.hint {
+  margin: 0 0 18px;
+  color: #cfd6ee;
+  font-size: 16px;
+}
+
+/* Sezione input commento */
+.field {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 30px;
+  text-align: left;
+}
+
+.field input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+/* Colore del placeholder */
+.field input::placeholder {
+  color: rgba(200, 200, 200, 0.7);
+}
+
+/* Linea colorata sotto l’input */
+.underline {
+  height: 2px;
+  background: #ff2bbf;
+  margin-top: 6px;
+}
+
+/* Bottone principale */
+.cta {
+  border: none;
+  padding: 16px 60px;
+  background: #27f1ff;
+  color: #071024;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Adattamento per schermi piccoli */
+@media (max-width: 768px) {
+  .content {
+    max-width: 95%;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .subtitle,
+  .hint {
+    font-size: 14px;
+  }
+
+  .star {
+    font-size: 34px;
+  }
+
+  .cta {
+    padding: 12px 40px;
+  }
+}
