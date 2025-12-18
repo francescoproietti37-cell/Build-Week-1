@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/resultstyle.css">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/resultstyle.css" />
+    <title>Results</title>
+  </head>
+
+  <body>
+    <!--SEZIONE LOGO-->
     <header>
-        <img src="./assets/imgs/epicode_logo.png" alt="">
+      <img src="./assets/imgs/epicode_logo.png" alt="" />
     </header>
-</body>
+
+    <main>
+      <!--SEZIONE H1-->
+      <div class="results">
+        <h1>Results</h1>
+        <p>The summary of your answers:</p>
+      </div>
+
+      <!--SEZIONE RISULTATI-->
+      <section id="container">
+        <div class="percentuale">
+          <div id="correct">
+            <h2>Correct</h2>
+            <p class="numeri-percentuali">66.7%</p>
+            <p class="questions">4/6 questions</p>
+          </div>
+        </div>
+
+        <!--<div id="donut">-->
+        <div id="timer-container">
+          <svg>
+            <circle class="base-circle" cx="250" cy="250" r="200"></circle>
+            <circle class="progression-circle" cx="250" cy="250" r="200"></circle>
+          </svg>
+          <div id="countdown">
+            <h2>Congratulations!</h2>
+            <h3>You passed the exam.</h3>
+            <p>
+              We'll send you the certificate in few minutes.<br />
+              Check your email (including <br />promotions / spam folder)
+            </p>
+          </div>
+        </div>
+        <!--</div>-->
+
+        <div class="percentuale">
+          <div id="wrong">
+            <h2>Wrong</h2>
+            <p class="numeri-percentuali">33.3%</p>
+            <p class="questions">2/6 questions</p>
+          </div>
+        </div>
+      </section>
+
+      <!--FOOTER-->
+      <footer>
+        <div>
+          <button type="button">RATE US</button>
+        </div>
+      </footer>
+    </main>
+  </body>
 </html>
