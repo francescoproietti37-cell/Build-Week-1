@@ -27,15 +27,14 @@ body {
 
 /* Pannello contenuti (come .panel) */
 .content {
-  min-height: 100vh;
   width: 100%;
   padding: 110px 160px;
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-position: relative; 
+  position: relative;
 }
 
 /* LOGO */
@@ -67,7 +66,7 @@ h1 {
   font-weight: 700;
   line-height: 1.05;
   margin-bottom: 18px;
-  margin-top: auto;
+  margin-top: 2em;
 }
 
 /* Sottotitolo */
