@@ -98,9 +98,6 @@ function showQuestion() {
   const questionDiv = document.getElementById("question-shower");
   const answersDiv = document.getElementById("answer-shower");
 
-  //Con questo check, verifico su che pagina lo sto utilizzando
-  if (questionDiv === null) return;
-
   questionDiv.innerHTML = "";
   answersDiv.innerHTML = "";
 
@@ -166,8 +163,8 @@ function handleAnswerClick(clickedButton) {
 
   checkIfCorrect(clickedButton);
 
-  // dopo 600ms passo alla prossima domanda
-  setTimeout(nextQuestion, 600);
+  // dopo 700ms passo alla prossima domanda
+  setTimeout(nextQuestion, 700);
 }
 
 //PASSARE ALLA DOMANDA SUCCESSIVA
@@ -202,9 +199,16 @@ function applyCorrect(answer, button) {
 
 //Funzione che controlla se il bottone clickato contiene la risposta giusta e aggiunge un punto
 function checkIfCorrect(button) {
+  const questionDiv = document.getElementById("question-shower");
+  const answerFeedback = document.createElement("h3");
   if (button.classList.contains("correct")) {
     points++;
+    answerFeedback.innerText = "Correct!";
+    answerFeedback.style.color = "#7CFC00";
+  } else {
+    answerFeedback.innerText = "Wrong!";
   }
+  questionDiv.appendChild(answerFeedback);
 }
 
 function createResultsToPass() {
